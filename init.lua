@@ -508,7 +508,15 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         eslint = {},
-        ts_ls = {},
+        ts_ls = {
+          settings = {
+            diagnostics = {
+              -- TS6133 (unused variable) and TS6196 (unused type)
+              -- leaving those to ESLint only
+              ignoredCodes = { 6133, 6196 },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
