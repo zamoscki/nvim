@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.o.number = true -- Make line numbers default
-vim.o.relativenumber = false
+vim.o.relativenumber = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
 
