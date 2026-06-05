@@ -71,6 +71,9 @@ vim.diagnostic.config {
   jump = { float = true },
 }
 
+-- Enable lsp inlay hint by default
+vim.lsp.inlay_hint.enable(true)
+
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -169,8 +172,10 @@ require('lazy').setup({
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
+
   { 'NMAC427/guess-indent.nvim', opts = {} },
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
+
+  {
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
@@ -183,7 +188,7 @@ require('lazy').setup({
       linehl = false,
       current_line_blame = true,
       current_line_blame_opts = {
-        delay = 500,
+        delay = 0,
       },
     },
   },
@@ -515,6 +520,20 @@ require('lazy').setup({
               -- leaving those to ESLint only
               ignoredCodes = { 6133, 6196 },
             },
+            typescript = {
+              inlayHints = {
+                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayEnumMemberValueHints = true,
+              },
+            },
           },
         },
       }
@@ -724,7 +743,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-moon'
     end,
   },
 
