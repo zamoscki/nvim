@@ -729,7 +729,7 @@ require('lazy').setup({
   {
     'rose-pine/neovim',
     name = 'rose-pine',
-    config = function() vim.cmd 'colorscheme rose-pine-dawn' end,
+    config = function() vim.cmd 'colorscheme rose-pine' end,
   },
 
   -- Highlight todo, notes, etc in comments
