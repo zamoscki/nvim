@@ -513,6 +513,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
+        astro = {},
         eslint = {},
         ts_ls = {
           settings = {
@@ -554,6 +555,7 @@ require('lazy').setup({
 
         -- You can add other tools here that you want Mason to install
         'ts_ls',
+        'prettier', -- Used to format TypeScript, JavaScript and Astro code
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -624,6 +626,11 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        astro = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
